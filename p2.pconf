@@ -1,0 +1,11 @@
+set boxwidth 1 relative
+set style fill solid 1.0 border -1
+set style histogram rowstacked
+set style data histograms
+#set term png size 2048,300
+set term png size 19796*2,768
+set output 'a.png'
+set grid
+set xrange [0:19796]
+set yrange [0:100]
+plot "b22" using 2 ti 'logic' , '' using 3 ti 'render'
