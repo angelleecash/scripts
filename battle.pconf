@@ -1,0 +1,13 @@
+print "ploting with ",dataFile," with record ",recordCount," x from ", xFrom, " to ", xTo, " output to", outputFile
+set boxwidth 1 relative
+set style fill solid 1.0 border -1
+#set style histogram rowstacked
+set style data histograms
+set term png size recordCount * 2,600
+set output outputFile
+set grid 
+set xrange [xFrom:xTo]
+set yrange [0:100]
+set arrow from xFrom,33 to xTo,33 nohead lc rgb "green" lw 3
+
+plot dataFile using 4:5 with boxes
