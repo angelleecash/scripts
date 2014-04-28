@@ -1,32 +1,39 @@
 package info.boom.messages;
 
-option java_outer_classname = "MyMessages";
+option java_outer_classname = "BoomMessages";
 
-message MessageBase
+message Message
 {
 	extensions 10000 to max;
 	
 	enum MessageType
 	{
-		VERSION_REQUEST=1;
-		VERSION_RESPONSE=2;
+		LOGIN_REQUEST = 3;
+		LOGIN_RESPONSE = 4;
 	}
 	
-	required MessageType type=1;
+	required MessageType type = 1;
 }
 
-message VersionRequest
+message LoginRequest
 {
-	extend MessageBase
+	required string userName = 1;
+	required string password = 2;
+
+	extend Message
 	{
-		required VersionRequest id=10000;
+		required LoginRequest id = 10000;
 	}
 }
 
-message VersionResponse
+message LoginResponse
 {
-	extend MessageBase
+	required string auth = 1;
+
+	extend Message
 	{
-		required VersionResponse id=10001;
+		required LoginResponse id = 10001;
 	}
 }
+
+
