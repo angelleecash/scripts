@@ -1,0 +1,1 @@
+cat aaa | grep href | grep S16 | grep mp4 | awk '{sub(/^[ \t]+/, "")};1' | cut -d "\"" -f2 | pbcopy 
